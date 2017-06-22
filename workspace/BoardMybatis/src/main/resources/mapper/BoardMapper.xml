@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mapper.BoardMapper">
+ 
+ 	<select id="selectListAll" resultType="biDO">
+ 		SELECT boardIndex, title, userName, content, file, registerDate 
+ 		FROM boardInfo;
+ 	</select>
+ 	
+ 	<select id="selectListOne" resultType="biDO">
+ 		SELECT boardIndex, title, userName, content, file, registerDate 
+ 		FROM boardInfo WHERE boardIndex = #{boardIndex};
+ 	</select>
+ 	
+ 	<insert id="insertList" parameterType="biDO">
+        INSERT INTO boardInfo (title, userName, content, file) 
+        values (#{title}, #{userName}, #{content}, #{file});
+    </insert>
+    
+    <update id="updateList" parameterType="biDO">
+        UPDATE boardInfo 
+        SET title = #{title}, userName = #{userName}, 
+        	content = #{content}, file = #{file} 
+        WHERE boardIndex = #{boardIndex};
+    </update>
+    
+    <delete id="deleteList" parameterType="int">
+    	DELETE FROM boardInfo
+    	WHERE boardIndex = #{boardIndex};
+    </delete>
+ </mapper>

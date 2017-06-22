@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mapper.TeamMapper">
+ 
+ 	<select id="selectListAllTeam" resultType="tiDO">
+ 		SELECT teamIndex, userName, department, fileName, file 
+ 		FROM teamInfo;
+ 	</select>
+ 	
+ 	<select id="selectListOneTeam" resultType="tiDO">
+ 		SELECT teamIndex, userName, department, fileName, file 
+ 		FROM teamInfo WHERE teamIndex = #{teamIndex};
+ 	</select>
+ 	
+ 	<select id="selectImgOneTeam" resultType="java.util.Map">
+ 		SELECT teamIndex, file 
+ 		FROM teamInfo WHERE teamIndex = #{teamIndex};
+ 	</select>
+ 	
+ 	<insert id="insertListTeam" parameterType="tiDO">
+        INSERT INTO teamInfo (userName, department, fileName, file) 
+        values (#{userName}, #{department}, #{fileName}, #{file});
+    </insert>
+    
+    <update id="updateListTeam" parameterType="tiDO">
+        UPDATE teamInfo 
+        SET userName = #{userName}, department = #{department},
+        	fileName = #{fileName}, file = #{file} 
+        WHERE teamIndex = #{teamIndex};
+    </update>
+    
+    <delete id="deleteListTeam" parameterType="int">
+    	DELETE FROM teamInfo
+    	WHERE teamIndex = #{teamIndex};
+    </delete>
+ </mapper>

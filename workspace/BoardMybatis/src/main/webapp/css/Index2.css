@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: 	'굴림';
+}
+hr {
+	align: 			center; 
+	width: 			80%;
+}
+.top {
+	text-align: 	center; 
+	font-size:		30px; 
+	font-weigtht:	bold;
+}
+table {
+	margin: 		auto;
+	width: 			80%;
+	bgcolor: 		#F8F8F8;
+}
+td {
+	width: 			500px;
+	margin: 		30px;
+	padding: 		10px;	
+	text-align: 	center;
+	border: 		1px solid #E3E3E3;
+}
+.tableTop {
+	background: 	#F8F8F8;
+	color: 			#987D6A;
+	width: 			80px;
+	text-align: 	center;
+	font-weight: 	bold;
+}
+.rightButton {
+	margin-right: 	10%;
+	text-align: 	right;
+}
+a {
+	color: 			black;
+	text-decoration: none;
+}
+a:hover {
+	color: 			black;
+	text-decoration: underline;
+}
