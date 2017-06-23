@@ -1,0 +1,125 @@
+        .avatar {
+    /*      border: 1px solid rgba(255, 255, 255, 0.28);*/
+          border-radius: 100%;
+          display: inline-block;
+/*          padding-left: 4rem;
+          padding-right: 4rem;*/
+          position: relative;
+          overflow: hidden;
+          margin-right: 3.3em;
+          margin-left: 3em;
+          margin-bottom: 2em;
+        }
+        .avatar img {
+          border-radius: 100%;
+          display: block;
+        }
+        .round:hover {
+      border: 5px solid white;
+        -webkit-transition: all .4s ease-in .3s;
+        -moz-transition: all .4s ease-in .3s;
+        -o-transition: all .4s ease-in .3s;
+        -ms-transition: all .4s ease-in .3s;
+        transition: all .4s ease-in .3s;
+        } 
+        
+    .membershadow {
+      height: 100%;
+      width:100%;
+      top:70%;
+      position: absolute;
+      background: black;
+      opacity: 0.65;
+      z-index: 999;
+    }
+
+    .membershadow h1 {
+      margin: 1px;
+      font-size: 23px;
+      color: #fff;
+      font-weight:700;
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      color: #B6B6B6;
+    }
+    .member-wrapper {
+      border-top: 15px solid #313A3D;
+ /*     position: relative;
+      margin:auto;*/
+    }
+/*    .tab-member h1 {
+          text-align: center;
+          font-family: 'Lato', sans-serif;
+          color: #000;
+    }*/
+    .member-content {
+      background-color: gray;
+position:relative;
+    }
+      .member-content>h1 {
+        /*background-color: gray;*/
+        color:white;
+          margin-top:0.7em;
+          left:44%;
+          font-weight: bold;
+          text-align: center;
+          font-size: 2em;
+          font-family: 'Lato', sans-serif;
+          display: block;
+          position:absolute;
+      }
+
+
+.member-wrapper {
+/*  margin:60% auto;*/
+/*  width: 70%;
+  max-width:500px*/;
+}
+.member-content {
+   background-color: gray;
+}
+.member-menu {
+  border-top: 15px solid #313A3D;
+background-color: #735da4;
+}
+.member-menu li {
+  position:relative;
+/*  background-color: gray;*/
+  color:white;
+  display: inline-block;
+  padding: 20px 40px;
+  opacity: 0.8;
+  cursor:pointer;
+  z-index:0;
+}
+
+.member-menu li:hover {
+  color:#464646;
+}
+
+.member-menu li.active {
+  color:#464646;
+  opacity: 1;
+}
+
+.member-menu li.active:hover {
+  color:#464646;
+}
+
+.member-content>div {
+background-color: #735da4;
+  box-sizing:border-box;
+  width: 100%;
+  padding: 20px;  
+   padding-left:7em;
+  min-height:200px;
+}
+
+.line {
+  position:absolute;
+  width: 0;
+  height: 7px;
+  background-color: aqua;
+  top: 0;
+  left: 0;
+}
