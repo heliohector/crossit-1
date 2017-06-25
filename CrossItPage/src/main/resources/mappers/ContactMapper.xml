@@ -6,28 +6,87 @@
  <mapper namespace="mappers.ContactMapper">
  
  	<select id="selectListAllContact" resultType="ctDO">
- 		SELECT ctNum, ctName, ctEmail, ctMsg, ctRgDate, ctReply
- 		FROM contact;
+ 		SELECT 
+ 				ctNum
+ 		, 
+ 				ctName
+ 		, 
+ 				ctEmail
+ 		, 
+ 				ctMsg
+ 		, 
+ 				ctRgDate
+ 		, 
+ 				ctReply
+ 		FROM 
+ 				contact
+ 		;
  	</select>
  	
  	<select id="selectListOneContact" resultType="ctDO">
- 		SELECT ctNum, ctName, ctEmail, ctMsg, ctRgDate, ctReply
- 		FROM contact WHERE ctNum = #{ctNum};
+ 		SELECT 
+ 				ctNum
+ 		, 
+ 				ctName
+ 		, 
+ 				ctEmail
+ 		, 
+ 				ctMsg
+ 		, 
+ 				ctRgDate
+ 		, 
+ 				ctReply
+ 		FROM 
+ 				contact 
+ 		WHERE 
+ 				ctNum 
+ 		= 
+ 				#{ctNum}
+ 		;
  	</select>
  	
  	<insert id="insertListContact" parameterType="ctDO">
-        INSERT INTO contact (ctName, ctEmail, ctMsg) 
-        values (#{ctName}, #{ctEmail}, #{ctMsg});
+        INSERT INTO 
+        			contact 
+        (
+        			ctName
+        , 
+        			ctEmail
+        , 
+        			ctMsg
+        ) 
+        values 
+        (
+        			#{ctName}
+        , 
+        			#{ctEmail}
+        , 
+        			#{ctMsg}
+        )
+        ;
     </insert>
     
     <update id="updateListContact" parameterType="ctDO">
-        UPDATE contact 
-        SET ctReply = #{ctReply} 
-        WHERE ctNum = #{ctNum};
+        UPDATE 
+        		contact 
+        SET 
+        		ctReply 
+        = 
+        		#{ctReply} 
+        WHERE 
+        		ctNum 
+        = 
+        		#{ctNum}
+        ;
     </update>
     
     <delete id="deleteListContact" parameterType="int">
-    	DELETE FROM contact
-    	WHERE ctNum = #{ctNum};
+    	DELETE FROM 
+    				contact
+    	WHERE 
+    				ctNum 
+    	= 
+    				#{ctNum}
+    	;
     </delete>
  </mapper>
