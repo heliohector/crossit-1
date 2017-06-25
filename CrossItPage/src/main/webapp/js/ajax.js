@@ -4,11 +4,14 @@
 	
 	readItemAllContact();
 	
+	document.oncontextmenu = new Function('return false');   	// 우클릭 방지
+	document.ondragstart = new Function('reutrn false');        // 드래그 방지
+	document.onselectstart = new Function('return false');      // 복사 방지
+	
 })(window);
 
 //전체 리스트 읽기
 function readItemAllContact(){
-	
 	$.ajax({
 		url: "json.jsp",
 		method: "GET",
