@@ -1,0 +1,13 @@
+@CHARSET "utf-8";
+.clickable {
+	cursor: pointer;
+}
+.clickable:hover {
+	text-decoration: underline;
+}
+.active { 
+	color: #CD154A;
+}
+.page-line {
+	color: #C7C7C7;
+}
