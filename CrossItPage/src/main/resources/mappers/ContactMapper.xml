@@ -17,7 +17,7 @@
  		, 
  				ctRgDate
  		, 
- 				ctReply
+ 				ctStatus
  		FROM 
  				contact
  		;
@@ -35,7 +35,7 @@
  		, 
  				ctRgDate
  		, 
- 				ctReply
+ 				ctStatus
  		FROM 
  				contact 
  		WHERE 
@@ -70,9 +70,9 @@
         UPDATE 
         		contact 
         SET 
-        		ctReply 
+        		ctStatus 
         = 
-        		#{ctReply} 
+        		#{ctStatus} 
         WHERE 
         		ctNum 
         = 

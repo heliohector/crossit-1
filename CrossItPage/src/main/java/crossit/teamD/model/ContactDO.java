@@ -8,7 +8,7 @@ public class ContactDO {
 	private String ctEmail;			//문의자이메일
 	private String ctMsg;			//문의내용
 	private String ctRgDate;		//문의일자
-	private String ctReply;			//답장내용
+	private String ctStatus;		//문의상태
 	
 
 	public ContactDO() {
@@ -64,11 +64,11 @@ public class ContactDO {
 		this.ctRgDate = ctRgDate;
 	}
 	
-	public String getCtReply() {
-		return ctReply;
+	public String getCtStatus() {
+		return ctStatus;
 	}
 
-	public void setCtReply(String ctReply) {
-		this.ctReply = ctReply;
+	public void setCtStatus(String ctStatus) {
+		this.ctStatus = ctStatus;
 	}
 }
