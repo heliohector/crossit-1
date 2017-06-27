@@ -5,9 +5,29 @@
 .clickable:hover {
 	text-decoration: underline;
 }
+
 .active { 
 	color: #CD154A;
 }
+
 .page-line {
 	color: #C7C7C7;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.contact-status {
+	color: red;
+}
+.read {
+	color: blue;
+}
+.completed {
+	color: gray;
 }

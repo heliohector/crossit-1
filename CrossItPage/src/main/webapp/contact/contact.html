@@ -5,10 +5,29 @@
 	<title>문의게시판</title>
 	<link rel="stylesheet" type="text/css" href="contact.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="../js/ajax.js"></script>
+	<script src="ajax.js"></script>
+	<script src="event.js"></script>
 </head>
 <body>
-	<br><h2>문의 게시판</h2><br>
-	<table class="tbl paginated" id="contact-table"></table>
+	<br><h2>받은 문의</h2><br><br>
+
+	<form method="post" action="delete.jsp?From=contact">
+		<input type="submit" name="contact-remove" value="삭제"><br>
+		<br>
+		
+		<table class="tbl paginated" id="contact-table">
+			<thead>
+				<tr>
+					<td><input type="checkbox" name="contact-check" id="check-all" value="-1" /></td>
+					<td style='width: 50px;'>번호</td>
+					<td style='width: 100px;'>이름</td>
+					<td style='width: 200px;'>이메일</td>
+					<td style='width: 300px;'>문의내용</td>
+					<td style='width: 200px;'>작성일</td>
+					<td style='width: 100px;'>상태</td>
+				</tr>
+			</thead>
+		</table>
+	</form>
 </body>
 </html>

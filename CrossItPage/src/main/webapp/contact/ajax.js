@@ -21,31 +21,26 @@ function readItemAllContact(){
 			'Content-Type': 'application/json'
 		},
 		success:function(data){
-			var text = "<thead><tr>";
-			text += "<td style='width:50px;'>번호</td>";
-			text += "<td style='width:100px;'>이름</td>";
-			text += "<td style='width:200px;'>이메일</td>";
-			text += "<td style='width:300px;'>문의내용</td>";
-			text += "<td style='width:200px;'>작성일</td>";
-			text += "<td style='width:250px;'>답장내용</td></tr></thead><tbody>";
+			var text = "<tbody>";
 			
 			//json파일(json.jsp)을 읽어와서 테이블에 출력
 			for(var i=0 ; i<data.item.length; i++){
-				text += "<tr><td>" + data.item[i].ctNum + "</td>";			//번호
+				text += "<tr><td><input type='checkbox' name='contact-check' ";	//체크 박스
+				text += "value='"+data.item[i].ctNum+"'/></td>";
+					 
+				text += "<td>"+data.item[i].ctNum+"</td>";					//번호
 				
 				text += "<td>"+data.item[i].ctName+"</td>";					//이름
 				
 				text += "<td>"+data.item[i].ctEmail+"</td>";				//이메일
 				
-				text += "<td><a href='../contact/read.jsp?ctNum=" + data.item[i].ctNum + "'>"
+				text += "<td><a href='read.jsp?ctNum=" + data.item[i].ctNum + "'>"
 						+ data.item[i].ctMsg+"</a></td>";					//내용
 				
 				text += "<td>"+data.item[i].ctRgDate+"</td>";				//등록일시
 				
-				if(!data.item[i].ctReply)
-					text += "<td>-</td></tr>";								//답장내용이 없으면 "-" 출력
-				else
-					text += "<td>"+data.item[i].ctReply+"</td></tr>";		//답장내용
+				text += "<td class='contact-status'>"
+						+data.item[i].ctStatus+"</td></tr>";				//상태
 			}
 			text += "</tbody>";
 			$("#contact-table").append(text);								//테이블에 추가
@@ -86,6 +81,17 @@ function paging() {
 				  .slice(currentPage*numPerPage, (currentPage+1)*numPerPage)
 				  .show();
 			$(".pager").html("");
+			
+			
+			//상태 출력
+			for(var i=0 ; i<numRows ; i++){
+				var text = $($(".contact-status")[i]).text();
+				
+				if(text == "읽음")
+					$($(".contact-status")[i]).addClass("read");
+				if(text == "답장완료")
+					$($(".contact-status")[i]).addClass("completed");
+			}
 			
 			
 			//페이지 '이전'버튼
@@ -131,7 +137,7 @@ function paging() {
 			
 			
 			//페이지 '다음'버튼
-			if(Math.floor(currentPage/numPerView) != Math.floor((numPages-1)/numPerView)) {
+			if((Math.floor(currentPage/numPerView) != Math.floor((numPages-1)/numPerView)) && (numRows != 0)) {
 				//페이지 숫자 구분선 삽입
 				$("<span class='page-span page-line'>|</span>").appendTo(".pager");
 				
