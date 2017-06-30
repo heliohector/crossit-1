@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>출결현황</title>
+	<link rel="stylesheet" type="text/css" href="css/attendance.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/ajax.js"></script>
+	<script src="js/calendar.js"></script>
+</head>
+<body>
+	<br><h2>출결현황</h2>
+	<h4>[날짜 선택] -> [회원 체크] -> [버튼 클릭]</h4>
+
+	
+	<form method="post" action="update.jsp">
+	
+		<select id="term-select" name="term-select">
+			<option value="1" selected="selected">1기</option>
+			<option value="2">2기</option>
+			<option value="3">3기</option>
+		</select><br><br>
+		
+		
+		<table class="paginated" id="attendance-table">
+			<thead>
+				<tr>
+					<td id="td0-1" style='width: 60px;'>
+						<input type="checkbox" name="attendance-check" class="attendance-check" 
+							   id="check-all" value="-1" onClick="check_all();"/>
+					</td>
+					<td id="td0-2">이름</td>
+					<td id="td0-3">잔여</td>
+					<td id="td0-4">출석</td>
+					<td id="td0-5">지각</td>
+					<td id="td0-6">결석</td>
+					<td id="td0-7">가산점</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table><br><br>
+		
+		
+		<input type="button" name="attendance-present-btn"
+					id="attendance-present-btn" value="출석"
+					onClick="check_atttendance('출석', 'present', 0);" />
+		<input type="button" name="attendance-late-btn"
+					id="attendance-late-btn" value="지각"
+					onClick="check_atttendance('지각', 'late', -0.5);" />
+		<input type="button" name="attendance-absent-btn"
+					id="attendance-absent-btn" value="결석"
+					onClick="check_atttendance('결석', 'absent', -1);" />
+		<input type="button" name="attendance-plus-btn"
+					id="attendance-plus-btn" value="가산"
+					onClick="check_atttendance('가산', 'plus', 1);" />
+		<input type="button" name="attendance-remove-btn"
+					id="attendance-remove-btn" value="삭제"
+					onClick="check_atttendance('', '', -2);" />
+		
+		<br><br>
+		
+		<input type="submit" name="attendance-submit" id="attendance-submit" value="저장" />
+		
+	</form>
+</body>
+</html>
