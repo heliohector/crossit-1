@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mappers.AttendanceMapper">
+ 
+ 	<select id="selectListAllAttendance" resultType="atDO">
+ 		SELECT 
+ 				atNum
+ 		, 
+ 				atUrNum
+ 		,
+ 				atUrName
+ 		,
+ 				atUrTerm
+ 		,
+ 				atRest
+ 		,
+ 				atPresent
+ 		,
+ 				atLate
+ 		,
+ 				atAbsent
+ 		,
+ 				atPlus
+ 		FROM 
+ 				attendance
+ 		;
+ 	</select>
+ 	
+ 	<select id="selectListOneAttendance" resultType="atDO">
+ 		SELECT 
+ 				atNum
+ 		, 
+ 				atUrNum
+ 		,
+ 				atUrName
+ 		,
+ 				atUrTerm
+ 		,
+ 				atRest
+ 		,
+ 				atPresent
+ 		,
+ 				atLate
+ 		,
+ 				atAbsent
+ 		,
+ 				atPlus
+ 		FROM 
+ 				attendance
+ 		WHERE 
+ 				atNum 
+ 		= 
+ 				#{atNum}
+ 		;
+ 	</select>
+ 	
+ 	<select id="countByTermAttendance" resultType="int">
+ 		SELECT 
+ 				count(atNum)
+ 		FROM 
+ 				attendance
+ 		WHERE 
+ 				atUrTerm 
+ 		= 
+ 				#{atUrTerm}
+ 		;
+ 	</select>
+ 	
+ 	<select id="selectByTermAttendance" resultType="int">
+ 		SELECT 
+ 				atNum
+ 		FROM 
+ 				attendance
+ 		WHERE 
+ 				atUrTerm 
+ 		= 
+ 				#{atUrTerm}
+ 		;
+ 	</select>
+ 	
+ 	<insert id="insertListAttendance" parameterType="atDO">
+        INSERT INTO 
+        			attendance 
+        (
+        			atUrNum
+ 			,
+ 					atUrName
+ 			,
+ 					atUrTerm
+        ) 
+        values 
+        (
+        			#{atUrNum}
+        	,
+        			#{atUrName}
+        	,
+        			#{atUrTerm}
+        )
+        ;
+    </insert>
+    
+    <update id="updateListAttendance" parameterType="atDO">
+        UPDATE 
+        		attendance 
+        SET 
+        		atRest
+        = 
+        		#{atRest}
+        , 		
+        		atPresent 
+        = 
+        		#{atPresent}
+        , 
+        		atLate 
+        = 
+        		#{atLate}
+        , 
+        		atAbsent 
+        = 
+        		#{atAbsent}
+        , 
+        		atPlus 
+        = 
+        		#{atPlus}
+        WHERE 
+        		atNum 
+        = 
+        		#{atNum}
+        ;
+    </update>
+    
+    <delete id="deleteListAttendance" parameterType="int">
+    	DELETE FROM 
+    				attendance
+    	WHERE 
+    				atNum 
+    	= 
+    				#{atNum}
+    	;
+    </delete>
+ </mapper>
