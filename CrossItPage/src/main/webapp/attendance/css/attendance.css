@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+table {
+	margin: 		auto;
+	width: 			90%;
+	bgcolor: 		#F8F8F8;
+}
+td {
+	margin: 		30px;
+	padding: 		10px;	
+	text-align: 	center;
+	border: 		1px solid #E3E3E3;
+}
+
+.present {
+	color: 			green;
+}
+.late {
+	color:			#FF8000;
+}
+.absent {
+	color:			red;
+}
+.plus {
+	color:			blue;
+}
