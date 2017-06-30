@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mappers.UserMapper">
+ 
+ 	<select id="selectListAllUser" resultType="urDO">
+ 		SELECT 
+ 				urNum
+ 		, 
+ 				urName
+ 		, 
+ 				urTerm
+ 		FROM 
+ 				user
+ 		;
+ 	</select>
+ 	
+ 	<select id="selectListOneUser" resultType="urDO">
+ 		SELECT 
+ 				urNum
+ 		, 
+ 				urName
+ 		, 
+ 				urTerm
+ 		FROM 
+ 				user 
+ 		WHERE 
+ 				urNum 
+ 		= 
+ 				#{urNum}
+ 		;
+ 	</select>
+ 	
+ 	<insert id="insertListUser" parameterType="urDO">
+        INSERT INTO 
+        			user 
+        (
+        			urName
+        , 
+        			urTerm
+        ) 
+        values 
+        (
+        			#{urName}
+        , 
+        			#{urTerm}
+        )
+        ;
+    </insert>
+    
+    
+    <delete id="deleteListUser" parameterType="int">
+    	DELETE FROM 
+    				user
+    	WHERE 
+    				urNum 
+    	= 
+    				#{urNum}
+    	;
+    </delete>
+ </mapper>
